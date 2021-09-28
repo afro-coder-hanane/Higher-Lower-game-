@@ -5,6 +5,34 @@ import random
 # import logo
 print(logo) 
 
+#compare the greatest between A and B 
+def greater(A, B):
+  if (A['follower_count']>B['follower_count']):
+    return A
+  else:
+    return B
+
+#identify the correspond dictionary of user guess 
+def know_guess(guess, A, B):
+  if (guess=="A"):
+      guess = A
+  else:
+      guess = B
+  return guess
+
+#update the next play by setting winner to A and randomly choose a B from list 
+def update_play(guess, A, B, data):
+     A = guess
+     B = random.choice(data)
+     if(B == A):
+          B = random.choice(data)
+
+#update and track the count 
+def update_score(count):
+  count+=1
+
+#game function 
+
 def game():
   #generate a random number for A and B
   A,B=random.sample(data, 2)
@@ -31,35 +59,5 @@ def game():
     else:
       loss= True
       print(score)
-   
-
-def greater(A, B):
-  if (A['follower_count']>B['follower_count']):
-    return A
-  else:
-    return B
-
-def know_guess(guess, A, B):
-  if (guess=="A"):
-      guess = A
-  else:
-      guess = B
-  return guess
-
-def update_play(guess, A, B, data):
-     A = guess
-     B = random.choice(data)
-     if(B == A):
-          B = random.choice(data)
-
-def update_score(count):
-  count+=1
-
+#call of game to play   
 game()
-
- 
-
-
-
-
-#print (vs)
